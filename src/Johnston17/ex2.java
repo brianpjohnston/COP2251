@@ -19,7 +19,7 @@ public class ex2 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Tshirt shirtnew = doesobjectexist();
+        Tshirt shirtnew = getTshirtObject();
 
         textform.setPrefColumnCount(5);
         Button saveButton = new Button("Save");
@@ -102,7 +102,7 @@ public class ex2 extends Application {
             boolean gift = cbGift.isSelected();
             Tshirt shirt = new Tshirt(text, size, gift);
             try {
-                saveFile(shirt);
+                saveTshirtObject(shirt);
             } catch (IOException e1) {
                 System.err.println("Could not save file");
             }
@@ -114,7 +114,7 @@ public class ex2 extends Application {
     }
 
 
-    public static void saveFile(Tshirt shirt) throws IOException {
+    public static void saveTshirtObject(Tshirt shirt) throws IOException {
 
         try (
                 ObjectOutputStream output = new ObjectOutputStream(new
@@ -129,24 +129,24 @@ public class ex2 extends Application {
         }
     }
 
-    public static Tshirt doesobjectexist() {
+    public static Tshirt getTshirtObject() {
+        Tshirt shirt = null;
+
         try {
 
             ObjectInputStream input = new ObjectInputStream(new FileInputStream("tshirt.dat"));
-            Object shirttext = input.readObject();
-            Object shirtSize = input.readObject();
+            String shirtText = input.readObject().toString();
+            String shirtSize = input.readObject().toString();
             Boolean shirtGift = input.readBoolean();
 
-
             input.close();
-            Tshirt shirt = new Tshirt(shirttext.toString(), shirtSize.toString(), shirtGift);
-            return shirt;
+            shirt = new Tshirt(shirtText, shirtSize, shirtGift);
+
         } catch (Exception ex2) {
             System.err.print("Could not open file");
-
         }
 
-        return null;
+        return shirt;
     }
 
 
