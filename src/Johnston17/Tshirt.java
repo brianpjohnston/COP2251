@@ -1,7 +1,8 @@
 package Johnston17;
 
 /**
- * Created by tech140 on 10/24/2016.
+ * Created by brian
+ * I worked alone
  */
 public class Tshirt {
 

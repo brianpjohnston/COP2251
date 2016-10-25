@@ -82,7 +82,7 @@ public class ex_1 extends Application {
         int value = 0;
 
         while ((value = input.read()) != -1) {
-            //convert to hex value with "X" formatter
+
             hexFormat.append(String.format("%02X ", value));
 
 
