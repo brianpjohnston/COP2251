@@ -47,50 +47,67 @@ public class Finder {
 
 
     public static int findMax(String s, int max) {
-        String temp ="0";
-
+        String temp = "0";
         if (s.matches("")) {
             return max;
         }
-
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-
             if (Character.isDigit(c)) {
+                if (tryParseInt(s)) {
+                    int tempNum = Integer.parseInt(s);
+                    if (max <= tempNum) {
+                        max = tempNum;
+                    }
 
-                for (int j = 0; j < s.length(); j++) {
-                    char d = s.charAt(j);
-                    if (Character.isLetter(d)  ) {
+                } else {
+                    for (int j = 0; j < s.length(); j++) {
+                        char d = s.charAt(j);
+                        if (Character.isLetter(d)) {
 
-                        if (j>0){
-                            temp = s.substring(0, j);
-                            int tempNum = 0;
-                            tempNum = Integer.parseInt(temp);
-                            if (max <= tempNum) {
-                                max = tempNum;
-                        }
+                            if (j > 0) {
+                                temp = s.substring(0, j);
+                                int tempNum = 0;
+                                if (tryParseInt(temp)) {
+                                    tempNum = Integer.parseInt(temp);
+                                    if (max <= tempNum) {
+                                        max = tempNum;
+                                    }
 
-                        s = s.substring(j + 1);
+                                }
+
+                                s = s.substring(j + 1);
 
 
+                                findMax(s, max);
 
-                            findMax(s, max);
+                            }
+
                         }
                     }
 
 
                 }
 
+            } else {
+                s = s.substring(i + 1);
+                findMax(s, max);
+
             }
 
         }
-        int tempNum = Integer.parseInt(temp);
-        if (max <= tempNum) {
-            max = tempNum;
 
-        }
         return max;
+    }
 
+
+    public static boolean tryParseInt(String value) {
+        try {
+            Integer.parseInt(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
 
