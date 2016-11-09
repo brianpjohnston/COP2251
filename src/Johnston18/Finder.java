@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by brian on 10/31/2016.
  */
 public class Finder {
-    public static int sum = 0;
+
     public static int max;
 
     public static void main(String[] args) {
@@ -21,24 +21,26 @@ public class Finder {
 
 
     }
-
     public static int sumIt(String s) {
+        int sum = 0;
+
+
         if (s.matches("")) {
 
         } else {
+            ;
             String a = String.valueOf(s.charAt(0));
-            s = s.substring(1);
-            String pattern = "[0-9]";
-            if (a.matches(pattern)) {
-                sum = sum + Integer.parseInt(a);
-                sumIt(s);
+            Integer i = 0;
+            if (tryParseInt(a)) {
+                i = Integer.parseInt(a);
+            }
+            if (s.length() > 1) {
+                sum = i + sumIt(s.substring(1));
+
 
             } else {
-                sumIt(s);
-
+                sum = i;
             }
-
-
         }
 
 
@@ -79,7 +81,7 @@ public class Finder {
                                 s = s.substring(j + 1);
 
 
-                                findMax(s, max);
+                                return findMax(s, max);
 
                             }
 
@@ -91,7 +93,7 @@ public class Finder {
 
             } else {
                 s = s.substring(i + 1);
-                findMax(s, max);
+                return findMax(s, max);
 
             }
 
@@ -110,12 +112,3 @@ public class Finder {
         }
     }
 }
-
-
-
-        
-
-
-
-
-
