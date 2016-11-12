@@ -71,5 +71,15 @@ public class CreditCard implements Comparable<CreditCard> {
         return 0;	// Implement this correctly
     }
 
+    public Comparator PanSort = new Comparator<CreditCard>(){
+        public int compare(CreditCard cc1, CreditCard cc2){
+            String ccPan1 = cc1.getPAN();
+            String ccPan2 = cc2.getPAN();
+
+            return ccPan1.compareTo(ccPan2);
+        }
+    };
+
+
 
 }
