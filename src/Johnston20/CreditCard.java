@@ -1,9 +1,5 @@
 package Johnston20;
 
-
-import com.sun.javafx.binding.StringFormatter;
-import sun.java2d.pipe.SpanShapeRenderer;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,20 +8,19 @@ import java.util.Date;
 /**
  * Created by brian on 11/10/2016.
  */
-public class CreditCard {
+public class CreditCard implements Comparable<CreditCard> {
     String lastName;
     String firstName;
     String PAN;
     Date expDate;
 
+
+
     public CreditCard(String first, String last, String Pan, String inputExpDate){
-
-
         lastName = last;
         firstName = first;
         PAN = Pan;
         expDate = getDateFromString(inputExpDate);
-
     }
 
     public String getLastName() {
@@ -40,8 +35,8 @@ public class CreditCard {
         return PAN;
     }
 
-    public Date  getDate() {
-        return expDate;
+    public String  getExpDate() {
+        return getStringFromDate(expDate);
     }
 
     @Override
@@ -70,8 +65,10 @@ public class CreditCard {
             System.out.println("Exception :" + e);
         }
         return date;
+    }
 
-
+    public int compareTo(CreditCard card) {
+        return 0;	// Implement this correctly
     }
 
 

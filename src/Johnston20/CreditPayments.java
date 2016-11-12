@@ -3,53 +3,58 @@ package Johnston20;
 import java.util.ArrayList;
 
 /**
- * Created by brian on 11/10/2016.
+ * Created by Brian on 11/10/2016.
  */
 public class CreditPayments {
-    static ArrayList<CreditCard> list = new ArrayList<>();
+    ArrayList<CreditCard> payments = new ArrayList<CreditCard>();
+
     public static void main(String[] args) {
-
-
     }
 
-    public static  void reset(){
-        list.clear();
 
-    }
-    public static void add(CreditCard card){
-        list.add(card);
+    public   void reset(){
+        payments.clear();
     }
 
-    public static void printByPAN(ArrayList<CreditCard> inList){
+
+
+    public void add(CreditCard card){
+        payments.add(card);
+    }
+
+    public ArrayList<CreditCard> printByPAN(){
         System.out.println("Credit Cards by PAN:");
         printTitle();
-        ArrayList<CreditCard> list = new ArrayList<>();
+        ArrayList<CreditCard> list = new ArrayList<CreditCard>();
 
-
-
+        return list;
     }
-    public static void printByName(ArrayList<CreditCard> inList){
+
+
+
+    public ArrayList<CreditCard> printByName(){
         System.out.println("Credit Cards by Name:");
         printTitle();
-        ArrayList<CreditCard> list = new ArrayList<>();
 
+        ArrayList<CreditCard> list = new ArrayList<CreditCard>();
 
-
+        return list;
     }
-    public static void printByDate(ArrayList<CreditCard> inList){
+
+
+
+    public ArrayList<CreditCard> printByDate(){
         System.out.println("Credit Cards by Date:");
         printTitle();
-        ArrayList<CreditCard> list = new ArrayList<>();
+        ArrayList<CreditCard> list = new ArrayList<CreditCard>();
 
-
-
+        return list;
     }
 
-    public static void printTitle() {
+    public void printTitle() {
         System.out.println("  Last Name    First Name           PAN    Exp Date");
         System.out.println(" ----------    ----------    ----------   ---------");
     }
-
 
 
 }
