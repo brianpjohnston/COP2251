@@ -35,14 +35,14 @@ public class CreditCard implements Comparable<CreditCard> {
         return PAN;
     }
 
-    public String  getExpDate() {
-        return getStringFromDate(expDate);
+    public Date  getExpDate() {
+        return expDate;
     }
 
     @Override
     public String toString() {
 
-        String s = String.format("|%10s|%13s|%13s|%10s|", firstName,  lastName, PAN, getStringFromDate(expDate)   );
+        String s = String.format("|%10s|%13s|%13s|%10s|", lastName, firstName, PAN, getStringFromDate(expDate)   );
         return s;
     }
 
@@ -68,17 +68,10 @@ public class CreditCard implements Comparable<CreditCard> {
     }
 
     public int compareTo(CreditCard card) {
-        return 0;	// Implement this correctly
+
+        return 0;
     }
 
-    public Comparator PanSort = new Comparator<CreditCard>(){
-        public int compare(CreditCard cc1, CreditCard cc2){
-            String ccPan1 = cc1.getPAN();
-            String ccPan2 = cc2.getPAN();
-
-            return ccPan1.compareTo(ccPan2);
-        }
-    };
 
 
 

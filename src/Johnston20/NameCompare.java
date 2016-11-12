@@ -2,23 +2,18 @@ package Johnston20;
 
 import java.util.Comparator;
 
-
-
 /**
  * Created by Brian on 11/12/2016.
  */
 public class NameCompare implements Comparator<CreditCard> {
 
     public int compare(CreditCard cc1, CreditCard cc2) {
-        // Compare last name first
-        // If last names are equal then compare first names
-        return 0; // Implement correctly
+        if(cc1.getLastName().compareTo(cc2.getLastName()) == 0){
+            return cc1.getFirstName().compareTo(cc2.getFirstName());
+        }else{
+            return cc1.getLastName().compareTo(cc2.getLastName());
+        }
     }
-
-    public boolean equals(CreditCard cc) {
-        // Compare last name first
-        // If last names are equal then compare first names
-        return false;  // Implement
-    }
-
 }
+
+

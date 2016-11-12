@@ -2,19 +2,17 @@ package Johnston20;
 
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
-public class DateCompare implements Comparator {
+
+public class DateCompare implements Comparator<CreditCard> {
 
     public int compare(CreditCard cc1, CreditCard cc2) {
 
-        DateFormat df = new SimpleDateFormat("MM/yy");
         Date Pdate = null;
         Date Qdate= null;
         try {
-            Pdate = (Date) df.parse(cc1.getExpDate());
-            Qdate = (Date) df.parse(cc2.getExpDate());
+            Pdate = (Date) (cc1.getExpDate());
+            Qdate = (Date) (cc2.getExpDate());
         } catch (Exception e) {
             e.printStackTrace();
         }

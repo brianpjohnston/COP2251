@@ -2,7 +2,7 @@ package Johnston20;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import Johnston20.PANSort;
+
 
 /**
  * Created by Brian on 11/10/2016.
@@ -28,7 +28,7 @@ public class CreditPayments {
         System.out.println("Credit Cards by PAN:");
         printTitle();
 
-
+        //Collections.sort(payments);
         for (CreditCard c: payments) {
             System.out.println(c.toString());
 
@@ -42,8 +42,9 @@ public class CreditPayments {
     public ArrayList<CreditCard> printByName(){
         System.out.println("Credit Cards by Name:");
         printTitle();
-
+        Collections.sort(payments);
         for (CreditCard c: payments) {
+
             System.out.println(c.toString());
 
         }
@@ -56,7 +57,7 @@ public class CreditPayments {
     public ArrayList<CreditCard> printByDate(){
         System.out.println("Credit Cards by Date:");
         printTitle();
-
+        // Collections.sort(payments);
         for (CreditCard c: payments) {
             System.out.println(c.toString());
 
