@@ -1,5 +1,12 @@
 package Johnston20;
 
+
+import com.sun.javafx.binding.StringFormatter;
+import sun.java2d.pipe.SpanShapeRenderer;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -11,11 +18,13 @@ public class CreditCard {
     String PAN;
     Date expDate;
 
-    public CreditCard(String last, String first, String Pan, Date inputExpDate){
+    public CreditCard(String first, String last, String Pan, String inputExpDate){
+
+
         lastName = last;
         firstName = first;
         PAN = Pan;
-        expDate = inputExpDate;
+        expDate = getDateFromString(inputExpDate);
 
     }
 
@@ -31,17 +40,39 @@ public class CreditCard {
         return PAN;
     }
 
-    public Date getDate() {
+    public Date  getDate() {
         return expDate;
     }
 
     @Override
     public String toString() {
-        return "CreditCard{" +
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", PAN='" + PAN + '\'' +
-                ", expDate=" + expDate +
-                '}';
+
+        String s = String.format("|%10s|%13s|%13s|%10s|", firstName,  lastName, PAN, getStringFromDate(expDate)   );
+        return s;
     }
+
+    public String getStringFromDate(Date d){
+        DateFormat outputFormat = new SimpleDateFormat("MM/yy");
+        String dateToString = outputFormat.format(d);
+        return dateToString;
+
+    }
+
+    public Date getDateFromString(String s){
+        Date date= new Date();
+        try{String yourDate = s;
+            DateFormat dateFormat= new SimpleDateFormat("MM/yy");
+
+            date = (Date)dateFormat.parse(yourDate);
+            return date;
+
+        }catch (ParseException e){
+            System.out.println("Exception :" + e);
+        }
+        return date;
+
+
+    }
+
+
 }

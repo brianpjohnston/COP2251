@@ -12,30 +12,42 @@ public class CreditPayments {
 
     }
 
-    public  void reset(){
+    public static  void reset(){
         list.clear();
 
     }
-    public void add(CreditCard card){
+    public static void add(CreditCard card){
         list.add(card);
     }
-    public ArrayList<CreditCard> printByPAN(){
+
+    public static void printByPAN(ArrayList<CreditCard> inList){
+        System.out.println("Credit Cards by PAN:");
+        printTitle();
         ArrayList<CreditCard> list = new ArrayList<>();
 
-        return list;
+
 
     }
-    public ArrayList<CreditCard> printByName(){
+    public static void printByName(ArrayList<CreditCard> inList){
+        System.out.println("Credit Cards by Name:");
+        printTitle();
         ArrayList<CreditCard> list = new ArrayList<>();
 
-        return list;
+
 
     }
-    public ArrayList<CreditCard> printByDate(){
+    public static void printByDate(ArrayList<CreditCard> inList){
+        System.out.println("Credit Cards by Date:");
+        printTitle();
         ArrayList<CreditCard> list = new ArrayList<>();
 
-        return list;
 
+
+    }
+
+    public static void printTitle() {
+        System.out.println("  Last Name    First Name           PAN    Exp Date");
+        System.out.println(" ----------    ----------    ----------   ---------");
     }
 
 
