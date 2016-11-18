@@ -1,5 +1,8 @@
 package Johnston20;
 
+
+
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,6 +10,7 @@ import java.util.Date;
 
 /**
  * Created by brian on 11/10/2016.
+ * I worked alone
  */
 public class CreditCard implements Comparable<CreditCard> {
     String lastName;
@@ -16,7 +20,7 @@ public class CreditCard implements Comparable<CreditCard> {
 
 
 
-    public CreditCard(String first, String last, String Pan, String inputExpDate){
+    CreditCard(String first, String last, String Pan, String inputExpDate){
         lastName = last;
         firstName = first;
         PAN = Pan;
@@ -42,9 +46,8 @@ public class CreditCard implements Comparable<CreditCard> {
     @Override
     public String toString() {
 
-        String s = String.format("|%10s|%13s|%13s|%10s|", lastName, firstName, PAN, getStringFromDate(expDate)   );
-        return s;
-    }
+        return String.format("|%10s|%13s|%13s|%10s|", lastName, firstName, PAN, getStringFromDate(expDate)   );
+            }
 
     public String getStringFromDate(Date d){
         DateFormat outputFormat = new SimpleDateFormat("MM/yy");
@@ -68,10 +71,10 @@ public class CreditCard implements Comparable<CreditCard> {
     }
 
     public int compareTo(CreditCard card) {
-
-        return 0;
+    	
+    return this.getPAN().compareTo(card.getPAN());
     }
-
+   
 
 
 
